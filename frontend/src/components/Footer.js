@@ -13,7 +13,9 @@ function Footer() {
     >
       <Container>
         <Row>
-          <Col className="text-center py-3">Copyright &copy; iamsuyash.dev</Col>
+          <Col className="text-center py-3">
+            Copyright &copy; <a href="https://iamsuyash.dev/">iamsuyash.dev</a>
+          </Col>
         </Row>
       </Container>
     </footer>

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import BackgroundImage from '../images/background1.jpeg';
 
-function LandingPage() {
+function LandingPage({ history }) {
+  useEffect(() => {
+    const userInfo = localStorage.getItem('userInfo');
+    if (userInfo) {
+      history.push('/mynotes');
+    }
+  }, [history]);
   const ButtonStyle = {
     width: '200px',
     height: '55px',
