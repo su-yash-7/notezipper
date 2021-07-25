@@ -43,14 +43,14 @@ function RegisterScreen() {
           },
           config
         );
-        setLoading(false);
+        console.log(data);
         localStorage.setItem('userInfo', JSON.stringify(data));
         setLoading(false);
       } catch (error) {
+        setLoading(false);
         setError(error.response.data.message);
       }
     }
-    console.log(email);
   };
   const postDetails = (pics) => {
     if (!pics) {
