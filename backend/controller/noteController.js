@@ -20,5 +20,13 @@ const CreateNote = asyncHandler(async (req, res) => {
     res.status(201).json(createdNote);
   }
 });
+const getNoteById = asyncHandler(async (req, res) => {
+  const note = await Note.findById(req.params.id);
 
-module.exports = { getNotes, CreateNote };
+  if (note) {
+    res.json(note);
+  } else {
+    res.status(404).json({ message: 'Note not found' });
+  }
+});
+module.exports = { getNotes, CreateNote, getNoteById };
