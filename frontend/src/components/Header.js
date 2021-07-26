@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Container,
   Form,
@@ -7,9 +7,22 @@ import {
   Navbar,
   NavDropdown,
 } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import { logout } from '../actions/userActions';
 function Header() {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    history.push('/');
+  };
+
+  useEffect(() => {}, [userInfo]);
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -35,12 +48,7 @@ function Header() {
             <NavDropdown title="Suyash" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">My Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={() => {
-                  localStorage.removeItem('userInfo');
-                  history.push('/');
-                }}
-              >
+              <NavDropdown.Item onClick={logoutHandler}>
                 Logout
               </NavDropdown.Item>
             </NavDropdown>
