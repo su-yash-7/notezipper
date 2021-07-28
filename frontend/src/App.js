@@ -7,6 +7,7 @@ import MyNotes from './screens/MyNotes';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import CreateNote from './screens/CreateNote';
+import SingleNote from './screens/SingleNote';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" component={LoginScreen} exact />
           <Route path="/register" component={RegisterScreen} exact />
           <Route path="/createnote" component={CreateNote} exact />
+          <Route path="/note/:id" component={SingleNote} exact />
           <Route path="/mynotes" component={MyNotes} />
         </main>
         <Footer />

@@ -17,6 +17,9 @@ function MyNotes() {
   const noteCreate = useSelector((state) => state.noteCreate);
   const { success: successCreate } = noteCreate;
 
+  const noteUpdate = useSelector((state) => state.noteUpdate);
+  const { success: successUpdate } = noteUpdate;
+
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure?')) {
     }
@@ -27,7 +30,7 @@ function MyNotes() {
     if (!userInfo) {
       history.push('/');
     }
-  }, [dispatch, history, userInfo, successCreate]);
+  }, [dispatch, history, userInfo, successCreate, successUpdate]);
   return (
     <Container>
       <MainScreen title={`Welcome Back ${userInfo.name}..`}>
