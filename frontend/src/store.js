@@ -7,7 +7,11 @@ import {
   noteListReducer,
   noteUpdateReducer,
 } from './reducers/notesReducers';
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userUpdateReducer,
+} from './reducers/userReducers';
 
 const reducers = combineReducers({
   userLogin: userLoginReducer,
@@ -16,6 +20,7 @@ const reducers = combineReducers({
   noteCreate: noteCreateReducer,
   noteUpdate: noteUpdateReducer,
   noteDelete: noteDeleteReducer,
+  userUpdate: userUpdateReducer,
 });
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
